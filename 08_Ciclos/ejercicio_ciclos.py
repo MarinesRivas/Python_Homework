@@ -12,7 +12,7 @@ for i in range(i,len(numeros)): # el número es un nombre temporal para referirs
 
 print(i+1) # numeros en linea mas el siguiente termino en este caso el 16
 
-for i in range (i,len(numero), 2):
+for i in range (i,len(numeros), 2):
 
     print(i)
 
@@ -36,13 +36,10 @@ for i in range (i,len(numero), 2):
             for skill in persona['skills']:
                 print(skill)
 
+"""
 break
 else:
 
 print("no esta")
-
-
-
-
-
+""""""
 
