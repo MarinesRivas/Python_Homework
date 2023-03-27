@@ -18,6 +18,8 @@ for i in range (i,len(numeros), 2):
 
 #diccionario#
 
+
+
     persona = {
     'nombre':'Marines',
     'apellido':'Rivas',
@@ -36,10 +38,11 @@ for i in range (i,len(numeros), 2):
             for skill in persona['skills']:
                 print(skill)
 
+                
 """
 break
 else:
 
 print("no esta")
-""""""
+"""
 
