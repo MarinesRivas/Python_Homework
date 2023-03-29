@@ -40,3 +40,5 @@ class Abeja(Animal):
     # Nuevo método#
     def picar(self):
         print("Picar!")
+
+        
