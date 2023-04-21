@@ -44,3 +44,55 @@ for i in range(n_features):
     selected_features.add(best_feature)
 
 print('Selected features:', list(selected_features))
+
+
+import pandas as pd
+from sklearn.linear_model import Lasso
+from sklearn.model_selection import train_test_split
+
+# Load the dataset
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data'
+housing = pd.read_csv(url, sep='\s+', header=None)
+housing.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS',
+                   'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
+
+# Separate features and target variable
+X = housing.iloc[:, :-1]  # features
+y = housing.iloc[:, -1]   # target variable
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+
+# Fit the LASSO regression model
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_train, y_train)
+
+# Print the coefficients of the features
+coef = pd.Series(lasso.coef_, index=X.columns)
+print('Selected features:\n', coef[coef != 0])
+
+
+import pandas as pd
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import train_test_split
+
+# Load the dataset
+url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.data'
+housing = pd.read_csv(url, sep='\s+', header=None)
+housing.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS',
+                   'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
+
+# Separate features and target variable
+X = housing.iloc[:, :-1]  # features
+y = housing.iloc[:, -1]   # target variable
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+
+# Fit the Ridge regression model
+ridge = Ridge(alpha=0.1)
+ridge.fit(X_train, y_train)
+
+# Print the coefficients of the features
+coef = pd.Series(ridge.coef_, index=X.columns)
+print('Selected features:\n', coef)
